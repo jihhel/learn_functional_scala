@@ -1,0 +1,136 @@
+0. On vérifie le setup de tout le monde : hello world marche sur exercism et local
+
+https://learnxinyminutes.com/docs/fr-fr/scala-fr/
+
+A. Leap
+
+Scala = langage orienté objet ET fonctionnel.
+Typage fort induit
+Tout est expression (vs statement)
+
+Définir une variable : var vs val
+Définir une fonction : def une fonction
+
+=> Fonction = citoyen de première classe
+* fonction assignable à une variable
+* fonction peut retourner une fonction
+* fonction peut être passée en paramètre
+
+3 propriétés des fonctions en programmation fonctionnelle :
+* Totales
+    => Retourne une valeur quels que soient ses inputs (pas d'exception)
+* Pures
+    => Absence d'effet de bord (pas de modification d'état, IO ...)
+* Déterministes
+    => Les mêmes inputs retournent toujours le même output
+
+Exercice Leap year : https://exercism.org/tracks/scala/exercises/leap
+
+B. Immutabilité
+
+* Simplifie la compréhension de l'état d'un programme
+* Eviter les effets de bord
+* Simplifie les problèmes de concurrence entre Threads
+
+
+D. Imperatif vs déclaratif
+
+* On se concentre sur le "quoi" plutôt que sur le "comment"
+* Se concentrer sur le problème plutôt que sur le code
+* Le langage se charge du flow de contrôle
+
+Composition = combiner des modules simples pour créer un module plus complexe
+* DRY
+* Plus simple de comprendre les petites parties que l'ensemble
+* Pour aller plus loin : equational reasoning
+
+https://exercism.org/tracks/scala/exercises/scrabble-score
+
+E. Strain
+
+Pattern matching : équivalent fonctionnel de l'héritage
+
+Récursivité : décomposer un problèmes en plus petites instances du même problème
+* Réduire le problème dans son expression la plus simple
+* Trouver le(s) cas limite
+* Ajouter le pas récursif
+
+https://exercism.org/tracks/scala/exercises/robot-simulator
+
+https://exercism.org/tracks/scala/exercises/strain
+
+https://exercism.org/tracks/scala/exercises/accumulate
+
+https://exercism.org/tracks/scala/exercises/prime-factors
+
+
+
+F. Rna Transcription
+
+Programmation par type (Higher Kinded Types) :
+* Encapsuler nos valeurs dans des types respectant des lois données
+* Exploiter le compilateur pour rendre nos programmes plus précis
+
+Option : Monade pouvant avoir deux valeurs, Some(value) ou None
+Either : Monade pouvant avoir deux valeurs, Left(error) ou Right(success)
+
+https://exercism.org/tracks/scala/exercises/rna-transcription
+
+https://exercism.org/tracks/scala/exercises/collatz-conjecture
+
+https://exercism.org/tracks/scala/exercises/nucleotide-count
+
+
+
+G. Armstrong Numbers
+
+Fold : permet de combiner les valeurs d'une collection (List, Map...)
+* Définir la valeur initiale (accumulateur) => élément neutre quand la collection est vide
+* On traverse la collection
+* On réalise une opération sur l'élément de la collection (facultatif), avant de l'agréger
+    avec l'accumulateur
+
+Ex: somme des éléments d'une liste.
+* Valeur par défaut : 0
+* Pour chaque élément de la collection
+* On additionne la valeur courante à l'accumulateur
+
+https://exercism.org/tracks/scala/exercises/hamming
+/!\ On n'utilise pas List.count svp :) (mais on retient que ça existe !)
+
+Tips :
+* "abc".zip("def") => List(("a", "d"), ("b", "e"), ("c", "f")
+
+https://exercism.org/tracks/scala/exercises/armstrong-numbers
+Tips :
+* `nb.toString.toList.map(_.asDigit)` pour transformer un nombre en list de ses digits
+* scala.math.pow(nombre, puissance) pour calculer les puissances
+
+https://exercism.org/tracks/scala/exercises/isogram
+
+https://exercism.org/tracks/scala/exercises/etl
+
+
+Bonus : https://exercism.org/tracks/scala/exercises/flatten-array
+/!\ Ne pas utiliser flatMap (dans un exercice de flatten c'est pas drôle :p)
+
+Tips :
+* List[Any] décrit une liste pouvant contenir un type inconnu
+* Penser au pattern matching pour déterminer le type d'une value
+* La récursivité ET les folds peuvent être utiles
+
+
+
+H. Robot
+
+ADT : algebraic data type
+* Correspond à une manière de structurer ses données.
+* C'est un type de données composé de types de données (récursivité)
+* Deux types de données:
+    * Sum types : un type qui peut avoir plusieurs types différents
+    ex: le Sum type "Animal" peut-être de type "Dog", "Cat", "Girafe"...
+    * Product type : un type qui peut contenir plusieurs types
+    ex: le Product type "Animal" peut contenir un type "name", un type "age", un type "fur"...
+* Intérêts :
+    * Encourage (et facilite) le pattern matching
+    * Permet de restreindre les valeurs autorisées

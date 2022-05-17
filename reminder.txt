@@ -1,0 +1,36 @@
+* Expressions au lieu de statements (pureté)
+    * Pas de boucle for / while
+* Pas d'état mutable (sauf quand le but est de gérer un état) (pureté)
+* Effets de bord à la limite du programme (pureté)
+* Ne pas jeter d'exception (totalité)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* Des fonctions qui recoivent des types plutôt que des types qui portent des fonctions
+    * On est ici pour faire de la FP, pas de l'orienté objet
+* Ne pas utiliser de variable intermédiaire (composition)
+    * (Ce n'est pas une "règle" en FP, mais un bon exercice)
+* Ne pas utiliser de lambda anonyme
+
+
+
+
+
+
+Structurer ses types de données avec :
+* Des case class aux champs immutables
+* Des case object
+* Pas de méthode dans les types
