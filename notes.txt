@@ -134,3 +134,6 @@ ADT : algebraic data type
 * Intérêts :
     * Encourage (et facilite) le pattern matching
     * Permet de restreindre les valeurs autorisées
+
+Ex: on reprend https://exercism.org/tracks/scala/exercises/robot-simulator
+Le robot prend en entrée des commandes au lieu d'une string.

@@ -33,4 +33,3 @@
 Structurer ses types de données avec :
 * Des case class aux champs immutables
 * Des case object
-* Pas de méthode dans les types
